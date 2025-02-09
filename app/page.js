@@ -1,21 +1,23 @@
+// Name: Dakari Sow
+// Date: Febuary 6th 2025
+// This page is the landing page!
+
+
+"use client";
 import React from 'react';
-import Image from 'next/image';
-import Navigation from './component/navigation';
+import Gif from './component/gif'; // importing the main 'tails' graphic for the home page
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        
-        <h1>HELLO!</h1>
-        <Image
-          src='/goofy.png'// Assuming your image is inside the 'public' folder
-          alt='logo'
-          width={100}  // Set a width for the image
-          height={100} // Set a height for the image
-        />
-
-
+    <div className="flex flex-col items-center min-h-screen pt-10 sm:pt-20 font-[family-name:var(--font-geist-sans)]"> // keeping the font
+      <main className="flex flex-col items-center sm:items-start text-center">
+        <h1 className="text-7xl sm:text-9xl text-orange-600 font-extrabold">
+          Converter Site!
+        </h1>
+        <p className="text-orange-600 font-extrabold text-xl mt-2"> // this is intentionally not centered for a better look
+          We do it, so you don't have to!
+        </p>
+        <Gif />
       </main>
     </div>
   );
