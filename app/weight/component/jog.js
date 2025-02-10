@@ -1,3 +1,10 @@
+// Name: Dakari Sow
+// Date: Febuary 6th 2025
+// This page is the component for the weight GIF
+
+
+// This is the component for the jogging gif
+
 import React from 'react'
 import Image from 'next/image'; 
 

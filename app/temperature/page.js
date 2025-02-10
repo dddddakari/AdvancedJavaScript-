@@ -1,49 +1,63 @@
+// Name: Dakari Sow
+// Date: Febuary 6th 2025
+// This page is convert celsius to farenheit or convert fareinheit to celsius!
+
 "use client";
 import React, { useState } from "react";
 import Brr from './component/brr.js'
 
-const TemperatureConverter = () => {
+const TemperatureConverter = () => { // This is the main component for the temperature converter
   const [celsius, setCelsius] = useState("");
   const [fahrenheit, setFahrenheit] = useState("");
   const [arrayInput, setArrayInput] = useState("");
   const [convertedArray, setConvertedArray] = useState([]);
   const [isCelsiusToFahrenheit, setIsCelsiusToFahrenheit] = useState(true);
 
-  const handleCelsiusChange = (e) => {
+  const handleCelsiusChange = (e) => { // This function is for the celsius input
     const value = e.target.value;
     setCelsius(value);
     setFahrenheit(((value * 9) / 5 + 32).toFixed(2));
   };
 
-  const handleFahrenheitChange = (e) => {
+  const handleFahrenheitChange = (e) => { // This function is for the fahrenheit input
     const value = e.target.value;
     setFahrenheit(value);
     setCelsius((((value - 32) * 5) / 9).toFixed(2));
   };
 
-  const handleArrayConvert = () => {
+  const handleArrayConvert = () => { // This function is for the array input
     const values = arrayInput
       .split(",")
       .map((val) => val.trim())
       .filter((val) => val !== "");
 
-    const convertedValues = values.map((val) => {
+    const convertedValues = values.map((val) => { // This function is for the conversion of the values  
       const num = parseFloat(val);
       return isCelsiusToFahrenheit
         ? ((num * 9) / 5 + 32).toFixed(2) + " °F"
         : (((num - 32) * 5) / 9).toFixed(2) + " °C";
     });
 
-    setConvertedArray(convertedValues);
+    setConvertedArray(convertedValues); // This is the final input to set them to the converted values
   };
 
-  const toggleConversion = () => {
+  const toggleConversion = () => { // This function is for the toggle conversion
     setIsCelsiusToFahrenheit(!isCelsiusToFahrenheit);
     setCelsius("");
     setFahrenheit("");
     setArrayInput("");
     setConvertedArray([]);
   };
+
+  /* This is the main return for the temperature converter:
+  It contains the following:
+  - The Brr component
+  - The toggle conversion button
+  - The input fields for the temperature conversion
+  - The input field for the array conversion
+  - The button to convert the array
+  - The list of converted values
+  */
 
   return (
     <div className="flex flex-col items-center p-4">

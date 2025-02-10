@@ -1,49 +1,64 @@
+// Name: Dakari Sow
+// Date: Febuary 6th 2025
+// This page is convert kilograms to pounds or convert pounds to kilograms!
+
+
 "use client";
 import React, { useState } from "react";
 import Jogging from "./component/jog";
-
-const WeightConverter = () => {
+ 
+const WeightConverter = () => { // This is the main component for the weight converter
   const [kg, setKg] = useState("");
   const [lbs, setLbs] = useState("");
   const [arrayInput, setArrayInput] = useState("");
   const [convertedArray, setConvertedArray] = useState([]);
   const [isKgToLbs, setIsKgToLbs] = useState(true);
 
-  const handleKgChange = (e) => {
+  const handleKgChange = (e) => { // This function is for the kg input
     const value = e.target.value;
     setKg(value);
     setLbs((value * 2.20462).toFixed(2));
   };
 
-  const handleLbsChange = (e) => {
+  const handleLbsChange = (e) => { // This function is for the lbs input
     const value = e.target.value;
     setLbs(value);
     setKg((value / 2.20462).toFixed(2));
   };
 
-  const handleArrayConvert = () => {
+  const handleArrayConvert = () => { // This function is for the array input
     const values = arrayInput
       .split(",")
       .map((val) => val.trim())
       .filter((val) => val !== "");
 
-    const convertedValues = values.map((val) => {
+    const convertedValues = values.map((val) => { // This function is for the conversion of the values
       const num = parseFloat(val);
       return isKgToLbs
         ? (num * 2.20462).toFixed(2) + " lbs"
         : (num / 2.20462).toFixed(2) + " kg";
     });
 
-    setConvertedArray(convertedValues);
+    setConvertedArray(convertedValues); // This is the final input to set them to the converted values
   };
 
-  const toggleConversion = () => {
+  const toggleConversion = () => { // This function is for the toggle conversion
     setIsKgToLbs(!isKgToLbs);
     setKg("");
     setLbs("");
     setArrayInput("");
     setConvertedArray([]);
   };
+
+  /* This is the main return for the weight converter:
+  It contains the following:
+  - The Jogging component
+  - The toggle conversion button
+  - The input fields for the weight conversion
+  - The input field for the array conversion
+  - The button to convert the array
+  - The list of converted values
+    */
 
   return (
     <div className="flex flex-col items-center p-4">

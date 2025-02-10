@@ -1,6 +1,8 @@
 import React from 'react'
 import Image from 'next/image'; 
 
+// This is the component for the BRRR gif
+
 const Brr = () => {
   return (
     <div>

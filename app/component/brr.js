@@ -1,3 +1,9 @@
+// Name: Dakari Sow
+// Date: Febuary 6th 2025
+// This page is the component for the temperature GIF
+
+// All this will do is import the wanted gif while also giving me the ALT text and the width and height of the gif
+
 import React from 'react'
 import Image from 'next/image'; 
 
@@ -12,5 +18,3 @@ const Brr = () => {
         />
     </div>
 )}
-
-export default Brr;
