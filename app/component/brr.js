@@ -18,5 +18,3 @@ const Brr = () => {
         />
     </div>
 )}
-
-export default Brr;
